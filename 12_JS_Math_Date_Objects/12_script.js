@@ -93,7 +93,11 @@ console.log('strNumber '+ strNumber(myStr));
  */
 
 // get today's date
-
+var today = new Date()
+console.log(today)
+//get proper date
+var date = today.getDate() + "/" +(today.getMonth()+1) + "/" +today.getFullYear()
+console.log(date)
 
 //get date of the month 0 - 31 getDate()
 
@@ -102,10 +106,47 @@ console.log('strNumber '+ strNumber(myStr));
 
 // get full day of the week using switch statement
 
+var output = 'Today is : ';
+today = new Date().getDay();
+switch(today){
+    case 0:
+        output += 'Sunday';
+        break;
+    case 1:
+        output += 'Monday';
+        break;
+    case 2:
+        output += 'Tuesday';
+        break;
+    case 3:
+        output += 'Wednesday';
+        break;
+    case 4:
+        output += 'Thursday';
+        break;
+    case 5:
+        output += 'Friday';
+        break;
+    case 6:
+        output += 'Saturday';
+        break;
+    default:
+        output += '';
+        break;
+}
+console.log(output);
+document.querySelector('#display').textContent = output;
 
 // Display a Digital Clock on the web page
+function digitalClock() {
+    var today = new Date()
+    var options = {timeZone : 'Asia/Kolkata'}
+    var time = today.toLocaleTimeString('an-US',options)
+    document.querySelector('#clock').textContent = time
 
 
+}
+setInterval(digitalClock,1000)
 /* For More Details about Date() please have a look at
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 */
